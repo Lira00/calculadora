@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Tempo de Leitura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta
+      name="description"
+      content="Calcule o tempo de leitura de seu texto. Ferramenta gratuita para blogueiros e escritores."
+    />
+    <meta
+      name="keywords"
+      content="calculadora tempo leitura, tempo de leitura, blog"
+    />
+  </head>
+  <body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+      <h1 class="text-2xl font-bold mb-4 text-center">
+        Calculadora de Tempo de Leitura
+      </h1>
+      <textarea
+        id="text"
+        placeholder="Cole seu texto aqui..."
+        class="w-full p-2 mb-4 border rounded"
+      ></textarea>
+      <button
+        onclick="calculate()"
+        class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+      >
+        Calcular
+      </button>
+      <p id="result" class="mt-4 text-center"></p>
+    </div>
+    <script>
+      function calculate() {
+        const text = document.getElementById("text").value;
+        const words = text.trim().split(/\s+/).length;
+        const wpm = 200; // Palavras por minuto
+        const time = Math.ceil(words / wpm);
+        document.getElementById(
+          "result"
+        ).innerText = `Tempo de leitura: ${time} minuto(s)`;
+      }
+    </script>
+  </body>
+</html>
